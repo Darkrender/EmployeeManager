@@ -10,7 +10,7 @@ export interface EmployeesState {
 }
 
 interface FetchingEmployeesAction { type: 'FETCHING_EMPLOYEES' }
-interface GetReceivedEmployeesSuccessAction { type: 'GET_REVEIVED_EMPLOYEES_SUCCESS', payload: Employee[] }
+interface GetReceivedEmployeesSuccessAction { type: 'GET_RECEIVED_EMPLOYEES_SUCCESS', payload: Employee[] }
 
 type KnownAction = FetchingEmployeesAction | GetReceivedEmployeesSuccessAction;
 
@@ -22,7 +22,7 @@ export const reducer: Reducer<EmployeesState> = (state: EmployeesState, action: 
     switch (action.type) {
         case 'FETCHING_EMPLOYEES':
             return { ...state, isFetching: true };
-        case 'GET_REVEIVED_EMPLOYEES_SUCCESS':
+        case 'GET_RECEIVED_EMPLOYEES_SUCCESS':
             return { ...state, isFetching: false, allEmployees: action.payload };
         default:
             return state || { isFetching: false, allEmployees: [], selectedEmployee: null };
