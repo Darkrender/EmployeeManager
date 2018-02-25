@@ -2,7 +2,7 @@
 import { connect, Dispatch, Store } from 'react-redux';
 import { ApplicationState } from 'ClientApp/store';
 import EmployeeListItem from './EmployeeListItem/EmployeeListItem';
-import * as EmployeeState from '../../store/Employees';
+import * as EmployeeState from '../../../store/Employees';
 
 type EmployeeListProps =
     EmployeeState.EmployeesState &
