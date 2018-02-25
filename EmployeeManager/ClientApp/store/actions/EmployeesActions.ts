@@ -8,17 +8,18 @@ export const startFetchingEmployees = (dispatch: Dispatch<ApplicationState>) => 
     dispatch({ type: 'FETCHING_EMPLOYEES' });
 
     return getAllEmployees().then(
-        result => {
-            dispatch(getReceivedEmployeesSuccess(result.data))
+        response => {
+            const employees: Employee[] = response.data.result;
+            dispatch(getReceivedEmployeesSuccess(employees))
         },
         error => console.log(error)
     );
 }
 
 export const getReceivedEmployeesSuccess = (payload: Employee[]) => {
-    return { type: 'GET_REVEIVED_EMPLOYEES_SUCCESS', payload };
+    return { type: 'GET_RECEIVED_EMPLOYEES_SUCCESS', payload };
 }
 
 export const getAllEmployees = () => {
-    return axios.get('/api/employee');
+    return axios.get('/api/employees');
 }
