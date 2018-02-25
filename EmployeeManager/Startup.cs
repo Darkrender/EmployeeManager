@@ -24,7 +24,7 @@ namespace EmployeeManager
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<Models.ApplicationDbContext>(
-                opts => opts.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=ReactTest;Trusted_Connection=True;ConnectRetryCount=0"));
+                opts => opts.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=EmployeeManager;Trusted_Connection=True;ConnectRetryCount=0"));
             services.AddMvc();
         }
 
