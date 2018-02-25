@@ -1,0 +1,37 @@
+body {
+    background-color: #e6e6e6;
+}
+
+/* Home Component Styles */
+.home-content {
+    margin-right: 6em;
+    margin-left: 6em;
+}
+
+.home-row {
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.home-row-item {
+    width: 45%;
+}
+
+/* Employee List Styles */
+
+.employee-list-header {
+    background-color: #1c9c9d;
+}
+
+/* Employee List Item Styles */
+
+/* Employee Form Styles */
+
+.employee-form-header {
+    background-color: #114a5d;
+}
+
+.employee-form-header.disabled {
+    background-color: #b3b3b3;
+}
