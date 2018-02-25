@@ -1,8 +1,9 @@
 ﻿export interface Employee {
-    Name: string;
-    Wage: number;
-    IsSalaried: boolean;
-    HireDate: Date;
-    PayFrequency: number;
-    JobTitle: string;
+    id: string;
+    name: string;
+    wage: number;
+    isSalaried: boolean;
+    hireDate: Date;
+    payFrequency: number;
+    jobTitle: string;
 }
