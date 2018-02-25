@@ -3,12 +3,13 @@ import { connect, Dispatch, Store } from 'react-redux';
 import { ApplicationState } from 'ClientApp/store';
 import * as EmployeeState from '../../../store/Employees';
 import { Employee } from 'ClientApp/shared/interfaces/Employee';
+//import { Card } from 'material-ui/Card';
 
-type EmployeeListProps = {
-    selectedEmployee: Employee
-};
+type EmployeeFormProps =
+    typeof EmployeeState.actionCreators &
+    { selectedEmployee: Employee };
 
-class EmployeeList extends React.Component<EmployeeListProps, {}> {
+class EmployeeForm extends React.Component<EmployeeFormProps, {}> {
     constructor(props: any) {
         super(props);
     }
@@ -17,10 +18,10 @@ class EmployeeList extends React.Component<EmployeeListProps, {}> {
         const { selectedEmployee } = this.props;
 
         return (
-            <div>
-                Employee Form
+            <div className="employee-form-container panel">
+                <div className="employee-form-header panel-heading"></div>
 
-                <div>{selectedEmployee ? selectedEmployee : "No one selected"}</div>
+                <div className="panel-body">{selectedEmployee ? selectedEmployee : "No one selected"}</div>
             </div>
         );
     }
@@ -31,4 +32,4 @@ const mapStateToProps = (state: ApplicationState) => {
     return { selectedEmployee };
 }
 
-export default connect(mapStateToProps, EmployeeState.actionCreators)(EmployeeList);
+export default connect(mapStateToProps, EmployeeState.actionCreators)(EmployeeForm);

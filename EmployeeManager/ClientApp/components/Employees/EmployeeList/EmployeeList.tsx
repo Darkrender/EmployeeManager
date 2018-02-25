@@ -6,8 +6,7 @@ import * as EmployeeState from '../../../store/Employees';
 
 type EmployeeListProps =
     EmployeeState.EmployeesState &
-    typeof EmployeeState.actionCreators &
-    { dispatch: Dispatch<any> };
+    typeof EmployeeState.actionCreators;
 
 class EmployeeList extends React.Component<EmployeeListProps, {}> {
     constructor(props: any) {
@@ -26,11 +25,13 @@ class EmployeeList extends React.Component<EmployeeListProps, {}> {
         }
 
         return (
-            <div>
-                Employee List
-                <ul>
-                    {allEmployees.map(employee => <EmployeeListItem key={employee.id} employee={employee}/>) }
-                </ul>
+            <div className="employee-list-container panel">
+                <div className="employee-list-header panel-heading"></div>
+                <div className="panel-body">
+                    <ul className="employee-list">
+                        {allEmployees.map(employee => <EmployeeListItem key={employee.id} employee={employee}/>) }
+                    </ul>
+                </div>
             </div>
         );
     }
