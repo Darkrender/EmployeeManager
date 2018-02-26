@@ -1,5 +1,5 @@
 ﻿import { Reducer } from 'redux';
-import { startFetchingEmployees } from '../actions/EmployeesActions';
+import { startFetchingEmployees, selectEmployee } from '../actions/EmployeesActions';
 
 export const EmployeesState = {
     isFetching: false,
@@ -8,7 +8,8 @@ export const EmployeesState = {
 }
 
 export const actionCreators = {
-    fetchEmployees: () => startFetchingEmployees
+    fetchEmployees: () => startFetchingEmployees,
+    setSelectedEmployee: (employee) => selectEmployee(employee)
 };
 
 export const reducer = (state, action) => {
@@ -17,6 +18,8 @@ export const reducer = (state, action) => {
             return { ...state, isFetching: true };
         case 'GET_RECEIVED_EMPLOYEES_SUCCESS':
             return { ...state, isFetching: false, allEmployees: action.payload };
+        case 'SET_SELECTED_EMPLOYEE':
+            return { ...state, selectedEmployee: action.payload };
         default:
             return state || { isFetching: false, allEmployees: [], selectedEmployee: null };
     }

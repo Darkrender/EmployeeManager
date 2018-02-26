@@ -12,6 +12,10 @@ export const startFetchingEmployees = (dispatch) => {
     );
 }
 
+export const selectEmployee = (payload) => {
+    return { type: 'SET_SELECTED_EMPLOYEE', payload };
+}
+
 export const getReceivedEmployeesSuccess = (payload) => {
     return { type: 'GET_RECEIVED_EMPLOYEES_SUCCESS', payload };
 }
