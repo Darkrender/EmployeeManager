@@ -1,7 +1,7 @@
 ﻿import React, { Component } from 'react';
 import { connect, Dispatch, Store } from 'react-redux';
 import EmployeeListItem from './EmployeeListItem/EmployeeListItem';
-import * as EmployeeState from '../../../store/Employees';
+import * as EmployeeState from '../../../store/reducers/Employees';
 
 class EmployeeList extends Component{
     constructor(props) {
