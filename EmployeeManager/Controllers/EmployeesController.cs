@@ -58,10 +58,17 @@ namespace EmployeeManager.Controllers
         [HttpPost]
         public IActionResult Create(Employee employee)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             _context.Employees.Add(employee);
             _context.SaveChanges();
 
-            return Ok();
+            return CreatedAtRoute("DefaultApi", new
+            {
+                id = employee.Id
+            }, employee);
         }
 
         [HttpPut("{id}")]
