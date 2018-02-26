@@ -1,13 +1,16 @@
 import * as Employees from './reducers/Employees';
+import * as EmployeeForm from './reducers/EmployeeForm';
 
 // The top-level state object
 export const ApplicationState = {
-    employees: Employees.EmployeesState
+    employees: Employees.EmployeesState,
+    employeeForm: EmployeeForm.EmployeeFormState
 }
 
 // Whenever an action is dispatched, Redux will update each top-level application state property using
 // the reducer with the matching name. It's important that the names match exactly, and that the reducer
 // acts on the corresponding ApplicationState property type.
 export const reducers = {
-    employees: Employees.reducer
+    employees: Employees.reducer,
+    employeeForm: EmployeeForm.reducer
 };
