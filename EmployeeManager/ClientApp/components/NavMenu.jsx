@@ -7,7 +7,7 @@ export class NavMenu extends Component {
             <div className='main-nav'>
                 <div className='navbar navbar-inverse'>
                     <div className='navbar-header'>
-                        <Link className='navbar-brand' to={ '/' }>EmployeeManager</Link>
+                        <div className='navbar-brand'>EmployeeManager</div>
                     </div>
                 </div>
             </div>
