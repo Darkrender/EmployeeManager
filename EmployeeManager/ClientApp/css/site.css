@@ -2,8 +2,30 @@ body {
     background-color: #e6e6e6;
 }
 
+
+/* Shared */
+.card-body {
+    height: 80%;
+}
+
+.card-header, .card-footer {
+    height: 10%;
+}
+
+/* Input styles */
+input {
+    border: 0;
+    border-bottom: 3px solid #ddd;
+    outline: none;
+}
+
+input:focus, input:active {
+    border-color: #154b5d;
+}
+
 /* Home Component Styles */
 .home-content {
+    margin-top: 3em;
     margin-right: 6em;
     margin-left: 6em;
 }
@@ -11,7 +33,6 @@ body {
 .home-row {
     display: flex;
     justify-content: space-around;
-    
 }
 
 .home-row-item {
@@ -19,19 +40,69 @@ body {
 }
 
 /* Employee List Styles */
+.employee-list-container, .employee-form-container {
+    border-radius: 0;
+    height: 600px;
+}
 
-.employee-list-header {
+.employee-list-footer, .employee-list-header {
+    border-radius: 0 !important;
     background-color: #1c9c9d;
 }
 
 /* Employee List Item Styles */
+.employee-list-item {
+    border-bottom: 3px solid #ddd !important;
+    font-size: 1.8em;
+    color: #1c9c9d;
+    font-weight: bold;
+}
+
+.employee-list-item .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80%;
+}
+
+.employee-list-item .fa-user {
+    margin-right: .3em;
+    color: #b3b3b3;
+}
+
+.employee-list-item .fa-pencil-alt {
+    color: #b3b3b3;
+}
+
+.employee-list-item .job-title {
+    color: #999999;
+    font-size: .8em;
+    margin-left: .2em;
+    font-weight: normal;
+}
+
+.employee-list-item:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+.employee-list-item.selected {
+    background-color: #f2f2f2;
+}
+
+.employee-list-item.selected .employee-name {
+    color: #7bc367;
+}
 
 /* Employee Form Styles */
-
-.employee-form-header {
+.employee-form-header, .employee-form-footer {
+    border-radius: 0 !important;
     background-color: #114a5d;
 }
 
-.employee-form-header.disabled {
-    background-color: #b3b3b3;
+.employee-form {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
 }
