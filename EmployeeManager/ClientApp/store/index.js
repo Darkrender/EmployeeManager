@@ -1,4 +1,4 @@
-import * as Employees from './Employees';
+import * as Employees from './reducers/Employees';
 
 // The top-level state object
 export const ApplicationState = {
