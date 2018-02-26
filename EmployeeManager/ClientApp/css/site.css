@@ -7,6 +7,23 @@ body {
     height: 80%;
 }
 
+.employee-form-footer, .employee-list-footer {
+    display: flex;
+}
+
+.employee-form-footer .update-employee-btn,
+.employee-form-footer .create-employee-btn,
+.employee-list-footer .add-employee-button {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #ffffff;
+}
+
 /* Navbar Styles */
 .main-nav {
     color: #ffffff;
@@ -118,3 +135,5 @@ input:focus, input:active {
     flex-flow: column;
     justify-content: space-around;
 }
+
+
