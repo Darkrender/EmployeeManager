@@ -1,6 +1,4 @@
-﻿import { ThunkAction } from "redux-thunk";
-import { Dispatch } from "react-redux";
-import axios, { AxiosPromise } from 'axios';
+﻿import axios from 'axios';
 
 export const startFetchingEmployees = (dispatch) => {
     dispatch({ type: 'FETCHING_EMPLOYEES' });
