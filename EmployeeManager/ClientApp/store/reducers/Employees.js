@@ -1,5 +1,6 @@
 ﻿import { Reducer } from 'redux';
 import { startFetchingEmployees, selectEmployee } from '../actions/EmployeesActions';
+import { updateForm } from '../actions/EmployeeFormActions';
 
 export const EmployeesState = {
     isFetching: false,
@@ -9,7 +10,10 @@ export const EmployeesState = {
 
 export const actionCreators = {
     fetchEmployees: () => startFetchingEmployees,
-    setSelectedEmployee: (employee) => selectEmployee(employee)
+    setSelectedEmployee: (employee) => (dispatch) => {
+        dispatch(updateForm(employee));
+        dispatch(selectEmployee(employee));
+    }
 };
 
 export const reducer = (state, action) => {
