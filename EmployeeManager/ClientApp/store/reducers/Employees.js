@@ -1,5 +1,5 @@
 ﻿import { Reducer } from 'redux';
-import { startFetchingEmployees } from './actions/EmployeesActions';
+import { startFetchingEmployees } from '../actions/EmployeesActions';
 
 export const EmployeesState = {
     isFetching: false,
