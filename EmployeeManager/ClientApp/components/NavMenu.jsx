@@ -5,7 +5,7 @@ export class NavMenu extends Component {
     render() {
         return (
             <div className='main-nav'>
-                <div className='navbar navbar-inverse'>
+                <div className='navbar'>
                     <div className='navbar-header'>
                         <div className='navbar-brand'>EmployeeManager</div>
                     </div>

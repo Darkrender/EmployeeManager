@@ -2,10 +2,22 @@ body {
     background-color: #e6e6e6;
 }
 
-
 /* Shared */
 .card-body {
     height: 80%;
+}
+
+/* Navbar Styles */
+.main-nav {
+    color: #ffffff;
+    background-color: #154b5d;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.main-nav .navbar-brand {
+    padding-left: 2em;
+    font-size: 3em;
 }
 
 .card-header, .card-footer {
