@@ -1,15 +1,10 @@
-﻿import * as React from 'react';
+﻿import React, { Component } from 'react';
 import { connect, Dispatch, Store } from 'react-redux';
-import { ApplicationState } from 'ClientApp/store';
 import EmployeeListItem from './EmployeeListItem/EmployeeListItem';
 import * as EmployeeState from '../../../store/Employees';
 
-type EmployeeListProps =
-    EmployeeState.EmployeesState &
-    typeof EmployeeState.actionCreators;
-
-class EmployeeList extends React.Component<EmployeeListProps, {}> {
-    constructor(props: any) {
+class EmployeeList extends Component{
+    constructor(props) {
         super(props);
     }
 
@@ -37,7 +32,7 @@ class EmployeeList extends React.Component<EmployeeListProps, {}> {
     }
 }
 
-const mapStateToProps = (state: ApplicationState) => {
+const mapStateToProps = (state) => {
     const { allEmployees, isFetching, selectedEmployee } = state.employees
     return { allEmployees, isFetching, selectedEmployee };
 }

@@ -1,10 +1,10 @@
-import * as React from 'react';
+import React, { Component } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import EmployeeList from '../components/Employees/EmployeeList/EmployeeList';
 import EmployeeForm from '../components/Employees/EmployeeForm/EmployeeForm';
 
-export default class Home extends React.Component<RouteComponentProps<{}>, {}> {
-    public render() {
+export default class Home extends Component {
+    render() {
         return (
             <div className="container-fluid">
                 <div className="home-content">

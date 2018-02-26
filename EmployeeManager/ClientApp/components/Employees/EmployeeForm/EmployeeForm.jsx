@@ -1,16 +1,10 @@
-﻿import * as React from 'react';
+﻿import React, { Component } from 'react';
 import { connect, Dispatch, Store } from 'react-redux';
-import { ApplicationState } from 'ClientApp/store';
 import * as EmployeeState from '../../../store/Employees';
-import { Employee } from 'ClientApp/shared/interfaces/Employee';
 //import { Card } from 'material-ui/Card';
 
-type EmployeeFormProps =
-    typeof EmployeeState.actionCreators &
-    { selectedEmployee: Employee };
-
-class EmployeeForm extends React.Component<EmployeeFormProps, {}> {
-    constructor(props: any) {
+class EmployeeForm extends Component {
+    constructor(props) {
         super(props);
     }
 
@@ -27,7 +21,7 @@ class EmployeeForm extends React.Component<EmployeeFormProps, {}> {
     }
 }
 
-const mapStateToProps = (state: ApplicationState) => {
+const mapStateToProps = (state) => {
     const { selectedEmployee } = state.employees
     return { selectedEmployee };
 }

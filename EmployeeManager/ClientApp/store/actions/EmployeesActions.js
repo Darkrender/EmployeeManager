@@ -1,22 +1,20 @@
 ﻿import { ThunkAction } from "redux-thunk";
 import { Dispatch } from "react-redux";
-import { ApplicationState, AppThunkAction } from "ClientApp/store";
-import { Employee } from "ClientApp/shared/interfaces/Employee";
 import axios, { AxiosPromise } from 'axios';
 
-export const startFetchingEmployees = (dispatch: Dispatch<ApplicationState>) => {
+export const startFetchingEmployees = (dispatch) => {
     dispatch({ type: 'FETCHING_EMPLOYEES' });
 
     return getAllEmployees().then(
         response => {
-            const employees: Employee[] = response.data.result;
+            const employees = response.data.result;
             dispatch(getReceivedEmployeesSuccess(employees))
         },
         error => console.log(error)
     );
 }
 
-export const getReceivedEmployeesSuccess = (payload: Employee[]) => {
+export const getReceivedEmployeesSuccess = (payload) => {
     return { type: 'GET_RECEIVED_EMPLOYEES_SUCCESS', payload };
 }
 

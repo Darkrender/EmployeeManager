@@ -10,14 +10,14 @@ module.exports = (env) => {
     // Configuration in common to both client-side and server-side bundles
     const sharedConfig = () => ({
         stats: { modules: false },
-        resolve: { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+        resolve: { extensions: ['.js', '.jsx'] },
         output: {
             filename: '[name].js',
             publicPath: 'dist/' // Webpack dev middleware, if enabled, handles requests for this URL prefix
         },
         module: {
             rules: [
-                { test: /\.tsx?$/, include: /ClientApp/, use: 'awesome-typescript-loader?silent=true' },
+                { test: /\.jsx?$/, include: /ClientApp/, use: 'babel-loader', exclude: /node_modules/},
                 { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' }
             ]
         },
@@ -27,7 +27,7 @@ module.exports = (env) => {
     // Configuration for client-side bundle suitable for running in browsers
     const clientBundleOutputDir = './wwwroot/dist';
     const clientBundleConfig = merge(sharedConfig(), {
-        entry: { 'main-client': './ClientApp/boot-client.tsx' },
+        entry: { 'main-client': './ClientApp/boot-client.jsx' },
         module: {
             rules: [
                 { test: /\.css$/, use: ExtractTextPlugin.extract({ use: isDevBuild ? 'css-loader' : 'css-loader?minimize' }) }
@@ -55,7 +55,7 @@ module.exports = (env) => {
     // Configuration for server-side (prerendering) bundle suitable for running in Node
     const serverBundleConfig = merge(sharedConfig(), {
         resolve: { mainFields: ['main'] },
-        entry: { 'main-server': './ClientApp/boot-server.tsx' },
+        entry: { 'main-server': './ClientApp/boot-server.jsx' },
         plugins: [
             new webpack.DllReferencePlugin({
                 context: __dirname,

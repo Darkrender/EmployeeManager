@@ -1,8 +1,8 @@
 import * as Employees from './Employees';
 
 // The top-level state object
-export interface ApplicationState {
-    employees: Employees.EmployeesState;
+export const ApplicationState = {
+    employees: Employees.EmployeesState
 }
 
 // Whenever an action is dispatched, Redux will update each top-level application state property using
@@ -11,9 +11,3 @@ export interface ApplicationState {
 export const reducers = {
     employees: Employees.reducer
 };
-
-// This type can be used as a hint on action creators so that its 'dispatch' and 'getState' params are
-// correctly typed to match your store.
-export interface AppThunkAction<TAction> {
-    (dispatch: (action: TAction) => void, getState: () => ApplicationState): void;
-}
