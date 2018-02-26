@@ -6,12 +6,14 @@ import * as EmployeeState from '../../../store/reducers/Employees';
 class EmployeeList extends Component{
     constructor(props) {
         super(props);
+
+        this._setSelectedEmployee = this._setSelectedEmployee.bind(this);
     }
 
     componentWillMount() {
         this.props.fetchEmployees();
     }
-
+    
     render() {
         const { allEmployees, isFetching, selectedEmployee } = this.props;
 
@@ -20,15 +22,31 @@ class EmployeeList extends Component{
         }
 
         return (
-            <div className="employee-list-container panel">
-                <div className="employee-list-header panel-heading"></div>
-                <div className="panel-body">
-                    <ul className="employee-list">
-                        {allEmployees.map(employee => <EmployeeListItem key={employee.id} employee={employee}/>) }
+            <div className="employee-list-container card">
+                <div className="employee-list-header card-header"></div>
+
+                <div className="card-body">
+                    <ul className="employee-list list-group list-group-flush">
+                        {
+                            allEmployees.map(employee =>
+                                <EmployeeListItem
+                                    handleClick={this._setSelectedEmployee}
+                                    key={employee.id}
+                                    employee={employee}
+                                    isSelected={selectedEmployee && employee.id === selectedEmployee.id} />
+                            )
+                        }
                     </ul>
+                </div>
+
+                <div className="employee-list-footer card-footer">
                 </div>
             </div>
         );
+    }
+
+    _setSelectedEmployee(employee) {
+        this.props.setSelectedEmployee(employee);
     }
 }
 
