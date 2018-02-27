@@ -24,7 +24,7 @@ namespace EmployeeManager.Controllers
             {
                 _context.Employees.Add(new Employee
                 {
-                    HireDate = new DateTime(),
+                    HireDate = DateTime.Now,
                     PaymentType = 0,
                     Name = "Jimmie Gisclair",
                     PayFrequency = 2,
