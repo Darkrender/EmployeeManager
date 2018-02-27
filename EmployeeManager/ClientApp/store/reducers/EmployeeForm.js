@@ -1,5 +1,5 @@
 ﻿import { updateForm } from '../actions/EmployeeFormActions';
-import { beginCreateEmployee } from '../actions/EmployeesActions';
+import { beginCreateEmployee, beginUpdateEmployee } from '../actions/EmployeesActions';
 
 
 export const EmployeeFormState = {
@@ -15,7 +15,7 @@ export const EmployeeFormState = {
 export const actionCreators = {
     beginUpdateForm: (payload) => updateForm(payload),
     createEmployee: () => beginCreateEmployee,
-    updateSelectedEmployee: () => { }
+    updateSelectedEmployee: () => beginUpdateEmployee
 }
 
 export const reducer = (state = EmployeeFormState, action) => {
