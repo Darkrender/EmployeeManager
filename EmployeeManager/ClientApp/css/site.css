@@ -74,6 +74,10 @@ input:focus, input:active {
     height: 600px;
 }
 
+.employee-list-body {
+    overflow-y: scroll;
+}
+
 .employee-list-footer, .employee-list-header {
     border-radius: 0 !important;
     background-color: #1c9c9d;
