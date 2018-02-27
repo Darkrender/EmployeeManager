@@ -25,7 +25,7 @@ class EmployeeList extends Component{
             <div className="employee-list-container card">
                 <div className="employee-list-header card-header"></div>
 
-                <div className="card-body">
+                <div className="employee-list-body card-body">
                     <ul className="employee-list list-group list-group-flush">
                         {
                             allEmployees.map(employee =>
