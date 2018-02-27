@@ -23,26 +23,25 @@ class EmployeeList extends Component{
     render() {
         const { allEmployees, isFetching, selectedEmployee } = this.props;
 
-        if (isFetching) {
-            return <div>loading</div>
-        }
-
         return (
             <div className="employee-list-container card">
                 <div className="employee-list-header card-header"></div>
 
                 <div className="employee-list-body card-body">
-                    <ul className="employee-list list-group list-group-flush">
-                        {
-                            allEmployees.map(employee =>
-                                <EmployeeListItem
-                                    handleClick={this._setSelectedEmployee}
-                                    key={employee.id}
-                                    employee={employee}
-                                    isSelected={selectedEmployee && employee.id === selectedEmployee.id} />
-                            )
-                        }
-                    </ul>
+                    {
+                        isFetching ? <div className="loader"><i className="fa fa-spinner fa-spin"></i></div> : 
+                            <ul className="employee-list list-group list-group-flush">
+                                {
+                                    allEmployees.map(employee =>
+                                        <EmployeeListItem
+                                            handleClick={this._setSelectedEmployee}
+                                            key={employee.id}
+                                            employee={employee}
+                                            isSelected={selectedEmployee && employee.id === selectedEmployee.id} />
+                                    )
+                                }
+                            </ul>
+                    }
                 </div>
 
                 <div className="employee-list-footer card-footer">
