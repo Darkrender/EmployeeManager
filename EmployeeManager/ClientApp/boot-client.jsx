@@ -1,5 +1,7 @@
 import './css/site.css';
-import 'bootstrap';
+import 'primereact/resources/primereact.min.css';
+import 'primereact/resources/themes/omega/theme.css';
+
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
@@ -8,6 +10,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import { createBrowserHistory } from 'history';
 import configureStore from './configureStore';
 import * as RoutesModule from './routes';
+
 let routes = RoutesModule.routes;
 
 // Create browser history to use in the Redux store
