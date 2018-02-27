@@ -3,7 +3,6 @@ import { beginCreateEmployee, beginUpdateEmployee } from '../actions/EmployeesAc
 
 
 export const EmployeeFormState = {
-    id: null,
     name: '',
     jobTitle: '',
     wage: '',
