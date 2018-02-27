@@ -7,13 +7,13 @@ namespace EmployeeManager.Models
 {
     public class Employee
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         public string Name { get; set; }
 
         public float Wage { get; set; }
 
-        public bool IsSalaried { get; set; }
+        public int PaymentType { get; set; }
 
         public DateTime HireDate { get; set; }
 

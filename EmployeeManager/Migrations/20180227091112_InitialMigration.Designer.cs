@@ -11,7 +11,7 @@ using System;
 namespace EmployeeManager.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180225173853_InitialMigration")]
+    [Migration("20180227091112_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,18 +23,18 @@ namespace EmployeeManager.Migrations
 
             modelBuilder.Entity("EmployeeManager.Models.Employee", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("HireDate");
-
-                    b.Property<bool>("IsSalaried");
 
                     b.Property<string>("JobTitle");
 
                     b.Property<string>("Name");
 
                     b.Property<int>("PayFrequency");
+
+                    b.Property<int>("PaymentType");
 
                     b.Property<float>("Wage");
 

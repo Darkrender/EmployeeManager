@@ -22,18 +22,18 @@ namespace EmployeeManager.Migrations
 
             modelBuilder.Entity("EmployeeManager.Models.Employee", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("HireDate");
-
-                    b.Property<bool>("IsSalaried");
 
                     b.Property<string>("JobTitle");
 
                     b.Property<string>("Name");
 
                     b.Property<int>("PayFrequency");
+
+                    b.Property<int>("PaymentType");
 
                     b.Property<float>("Wage");
 

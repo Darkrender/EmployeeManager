@@ -12,12 +12,12 @@ namespace EmployeeManager.Migrations
                 name: "Employees",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false),
+                    Id = table.Column<Guid>(nullable: false),
                     HireDate = table.Column<DateTime>(nullable: false),
-                    IsSalaried = table.Column<bool>(nullable: false),
                     JobTitle = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     PayFrequency = table.Column<int>(nullable: false),
+                    PaymentType = table.Column<int>(nullable: false),
                     Wage = table.Column<float>(nullable: false)
                 },
                 constraints: table =>
