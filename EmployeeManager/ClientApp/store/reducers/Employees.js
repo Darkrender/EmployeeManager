@@ -25,7 +25,7 @@ export const reducer = (state, action) => {
         case 'SET_SELECTED_EMPLOYEE':
             return { ...state, selectedEmployee: action.payload };
         case 'ADD_EMPLOYEE_TO_STATE':
-            return { ...state, allEmployees: [...state.allEmployees, action.payload] };
+            return { ...state, allEmployees: [action.payload, ...state.allEmployees] };
         default:
             return state || { isFetching: false, allEmployees: [], selectedEmployee: null };
     }
