@@ -1,6 +1,8 @@
 ﻿import React, { Component } from 'react';
 import { connect, Dispatch, Store } from 'react-redux';
 import { actionCreators } from '../../../store/reducers/EmployeeForm';
+import { Calendar } from 'primereact/components/calendar/Calendar';
+import moment from 'moment';
 
 class EmployeeForm extends Component {
     constructor(props) {
@@ -8,11 +10,21 @@ class EmployeeForm extends Component {
 
         this._handleChange = this._handleChange.bind(this);
         this._handleSubmit = this._handleSubmit.bind(this);
+        this._handleDateChange = this._handleDateChange.bind(this);
     }
 
     _handleChange(event) {
+        let value = event.target.value;
         this.props.beginUpdateForm({
-            [event.target.name]: event.target.value
+            [event.target.name]: value
+        });
+    }
+
+    _handleDateChange(event) {
+        const value = moment(event.value).format('MM-DD-YYYY');
+        console.log(value);
+        this.props.beginUpdateForm({
+            hireDate: value
         });
     }
 
@@ -23,17 +35,16 @@ class EmployeeForm extends Component {
     }
 
     _displaySubmitBtn() {
-        console.log('Selected Employee: ' + this.props.selectedEmployee);
         if (this.props.selectedEmployee) {
             return (
-                <a href="#" className="update-employee-btn">
+                <a href="#" onClick={this._handleSubmit} className="update-employee-btn">
                     <i className="fa fa-plus"></i> <span> Update Employee</span>
                 </a>
             );
         }
 
         return (
-            <a href="#" className="create-employee-btn">
+            <a href="#" onClick={this._handleSubmit} className="create-employee-btn">
                 <i className="fa fa-plus"></i> <span> Create Employee</span>
             </a>
         );
@@ -52,8 +63,10 @@ class EmployeeForm extends Component {
                         <input name="jobTitle" placeholder="Enter a job title..." value={jobTitle} onChange={this._handleChange} />
                         <input name="wage" placeholder="Enter a wage..." value={wage} onChange={this._handleChange} />
                         <input name="payFrequency" placeholder="Select a pay frequency..." value={payFrequency} onChange={this._handleChange} />
-                        <input name="hireDate" placeholder="Enter a hire date..." value={hireDate} onChange={this._handleChange} />
+
+                        <Calendar value={new Date(hireDate)} onChange={this._handleDateChange}></Calendar>
                     </form>
+
                 </div>
 
                 <div className="employee-form-footer card-footer">
@@ -65,10 +78,9 @@ class EmployeeForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
-    const { id, wage, payFrequency, jobTitle, hireDate, name, isSalaried } = state.employeeForm;
+    const { wage, payFrequency, jobTitle, hireDate, name, isSalaried } = state.employeeForm;
     const { selectedEmployee } = state.employees;
-    return { id, wage, payFrequency, jobTitle, hireDate, name, isSalaried, selectedEmployee };
+    return { wage, payFrequency, jobTitle, hireDate, name, isSalaried, selectedEmployee };
 }
 
 export default connect(mapStateToProps, actionCreators)(EmployeeForm);
