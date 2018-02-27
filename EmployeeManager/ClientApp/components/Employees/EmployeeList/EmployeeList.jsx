@@ -8,10 +8,16 @@ class EmployeeList extends Component{
         super(props);
 
         this._setSelectedEmployee = this._setSelectedEmployee.bind(this);
+        this._handleClick = this._handleClick.bind(this);
     }
 
     componentWillMount() {
         this.props.fetchEmployees();
+    }
+
+    _handleClick(event) {
+        event.preventDefault();
+        this.props.clearSelectedEmployee();
     }
     
     render() {
@@ -40,6 +46,9 @@ class EmployeeList extends Component{
                 </div>
 
                 <div className="employee-list-footer card-footer">
+                    <a href="#" onClick={this._handleClick} className="add-employee-btn">
+                        <i className="fa fa-plus"></i> <span>Add Employee</span>
+                    </a>
                 </div>
             </div>
         );
