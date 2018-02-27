@@ -51,7 +51,7 @@ class EmployeeForm extends Component {
     }
 
     render() {
-        const { id, wage, payFrequency, jobTitle, hireDate, name, isSalaried } = this.props;
+        const { id, wage, payFrequency, jobTitle, hireDate, name, paymentType } = this.props;
 
         return (
             <div className="employee-form-container card">
@@ -89,9 +89,9 @@ class EmployeeForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const { wage, payFrequency, jobTitle, hireDate, name, isSalaried } = state.employeeForm;
+    const { wage, payFrequency, jobTitle, hireDate, name, paymentType } = state.employeeForm;
     const { selectedEmployee } = state.employees;
-    return { wage, payFrequency, jobTitle, hireDate, name, isSalaried, selectedEmployee };
+    return { wage, payFrequency, jobTitle, hireDate, name, paymentType, selectedEmployee };
 }
 
 export default connect(mapStateToProps, actionCreators)(EmployeeForm);
