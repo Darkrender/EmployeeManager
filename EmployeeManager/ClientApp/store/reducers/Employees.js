@@ -1,5 +1,5 @@
 ﻿import { Reducer } from 'redux';
-import { startFetchingEmployees, selectEmployee } from '../actions/EmployeesActions';
+import { startFetchingEmployees, selectEmployee, clearSelectedEmployee } from '../actions/EmployeesActions';
 import { updateForm } from '../actions/EmployeeFormActions';
 
 export const EmployeesState = {
@@ -9,6 +9,7 @@ export const EmployeesState = {
 }
 
 export const actionCreators = {
+    clearSelectedEmployee: () => clearSelectedEmployee,
     fetchEmployees: () => startFetchingEmployees,
     setSelectedEmployee: (employee) => (dispatch) => {
         dispatch(updateForm(employee));
@@ -27,6 +28,8 @@ export const reducer = (state, action) => {
         case 'UPDATE_EMPLOYEE_SUCCESS':
             const employees = state.allEmployees.filter(e => e.id !== state.selectedEmployee.id)
             return { ...state, allEmployees: [action.payload, ...employees], selectedEmployee: action.payload };
+        case 'CLEAR_SELECTED_EMPLOYEE':
+            return { ...state, selectedEmployee: null };
         case 'ADD_EMPLOYEE_TO_STATE':
             return { ...state, allEmployees: [action.payload, ...state.allEmployees] };
         default:
