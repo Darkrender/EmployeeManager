@@ -62,9 +62,15 @@ class EmployeeForm extends Component {
                         <input name="name" placeholder="Enter a name..." value={name} onChange={this._handleChange} />
                         <input name="jobTitle" placeholder="Enter a job title..." value={jobTitle} onChange={this._handleChange} />
                         <input name="wage" placeholder="Enter a wage..." value={wage} onChange={this._handleChange} />
-                        <input name="payFrequency" placeholder="Select a pay frequency..." value={payFrequency} onChange={this._handleChange} />
+                        <select name="payFrequency" value={payFrequency} onChange={this._handleChange}>
+                            <option disabled value={0}>Select a Pay frequency...</option>
+                            <option value={1}>Weekly</option>
+                            <option value={2}>Bi-Weekly</option>
+                            <option value={4}>Monthly</option>
+                        </select>
 
                         <Calendar value={new Date(hireDate)} onChange={this._handleDateChange}></Calendar>
+
                     </form>
 
                 </div>
