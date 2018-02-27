@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EmployeeManager.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -56,7 +57,7 @@ namespace EmployeeManager.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Employee employee)
+        public IActionResult Create([FromBody] Employee employee)
         {
             if (!ModelState.IsValid)
             {
@@ -65,10 +66,7 @@ namespace EmployeeManager.Controllers
             _context.Employees.Add(employee);
             _context.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new
-            {
-                id = employee.Id
-            }, employee);
+            return Ok(employee);
         }
 
         [HttpPut("{id}")]
