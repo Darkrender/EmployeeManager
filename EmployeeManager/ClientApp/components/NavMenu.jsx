@@ -7,7 +7,7 @@ export class NavMenu extends Component {
             <div className='main-nav'>
                 <div className='navbar'>
                     <div className='navbar-header'>
-                        <div className='navbar-brand'>EmployeeManager</div>
+                        <div className='navbar-brand'>Employee Manager</div>
                     </div>
                 </div>
             </div>
