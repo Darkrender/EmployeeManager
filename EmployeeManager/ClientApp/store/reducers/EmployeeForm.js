@@ -8,8 +8,8 @@ export const EmployeeFormState = {
     jobTitle: '',
     wage: '',
     payFrequency: 0,
+    paymentType: 0,
     hireDate: new Date(),
-    isSalaried: true
 }
 
 export const actionCreators = {
