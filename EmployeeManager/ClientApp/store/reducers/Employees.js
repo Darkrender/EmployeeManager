@@ -24,9 +24,9 @@ export const reducer = (state, action) => {
             return { ...state, isFetching: false, allEmployees: action.payload };
         case 'SET_SELECTED_EMPLOYEE':
             return { ...state, selectedEmployee: action.payload };
-        case 'UPDATE_EMPLOYEE':
+        case 'UPDATE_EMPLOYEE_SUCCESS':
             const employees = state.allEmployees.filter(e => e.id !== state.selectedEmployee.id)
-            return { ...state, allEmployees: [...employees, action.payload] };
+            return { ...state, allEmployees: [action.payload, ...employees], selectedEmployee: action.payload };
         case 'ADD_EMPLOYEE_TO_STATE':
             return { ...state, allEmployees: [action.payload, ...state.allEmployees] };
         default:
