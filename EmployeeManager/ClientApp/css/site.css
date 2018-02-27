@@ -60,6 +60,7 @@ input:focus, input:active,
     align-items: center;
     z-index: 1000;
     font-size: 2rem;
+    color: #1c9c9d;
 }
 
 /* Navbar Styles */
