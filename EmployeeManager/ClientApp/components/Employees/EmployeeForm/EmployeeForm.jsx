@@ -130,7 +130,7 @@ class EmployeeForm extends Component {
                     </TabPanel>
 
                     <TabPanel disabled={selectedEmployee ? false : true} header="Payment Preview" rightIcon="fa-print">
-                        <label>Select a date range to preview:
+                        <label className="date-range-label">Select a date range to preview:
                             <Calendar value={this.state.dateRange} selectionMode="range" onChange={this._handleDateRangeChange}></Calendar>
                         </label>
 

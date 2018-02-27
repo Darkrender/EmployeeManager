@@ -186,3 +186,12 @@ input:focus, input:active,
 .employee-form-container .ui-tabview .ui-tabview-panels .ui-tabview-panel {
     flex: 1;
 }
+
+.date-range-label {
+    width: 100%;
+}
+
+.date-range-label .ui-calendar {
+    width: 30%;
+    padding-left: .5em;
+}
