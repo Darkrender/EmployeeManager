@@ -1,19 +1,20 @@
 ﻿import { updateForm } from '../actions/EmployeeFormActions';
+import { beginCreateEmployee } from '../actions/EmployeesActions';
 
 
 export const EmployeeFormState = {
-    id: '',
+    id: null,
     name: '',
     jobTitle: '',
     wage: '',
     payFrequency: '',
-    hireDate: '',
+    hireDate: new Date(),
     isSalaried: true
 }
 
 export const actionCreators = {
     beginUpdateForm: (payload) => updateForm(payload),
-    createEmployee: () => { },
+    createEmployee: () => beginCreateEmployee,
     updateSelectedEmployee: () => { }
 }
 
