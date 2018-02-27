@@ -9,6 +9,7 @@ body {
 
 .employee-form-footer, .employee-list-footer {
     display: flex;
+    padding: 0;
 }
 
 .employee-form-footer .update-employee-btn,
@@ -22,6 +23,12 @@ body {
     text-transform: uppercase;
     text-decoration: none;
     color: #ffffff;
+}
+
+.fa-plus {
+    font-size: 1.2rem;
+    padding-right: .4em;
+    padding-top: .2em;
 }
 
 /* Navbar Styles */
