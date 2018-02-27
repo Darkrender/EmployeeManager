@@ -69,8 +69,13 @@ class EmployeeForm extends Component {
                             <option value={4}>Monthly</option>
                         </select>
 
+                        <select name="paymentType" value={payementType} onChange={this._handleChange}>
+                            <option disabled>Select a payment type...</option>
+                            <option value={0}>Salaried</option>
+                            <option value={1}>Hourly</option>
+                        </select>
+                        
                         <Calendar value={new Date(hireDate)} onChange={this._handleDateChange}></Calendar>
-
                     </form>
 
                 </div>
