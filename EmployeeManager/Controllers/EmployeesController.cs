@@ -70,16 +70,22 @@ namespace EmployeeManager.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(Employee employee)
+        public IActionResult Update([FromBody] Employee employee)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             var model = _context.Employees.Update(employee);
+            _context.SaveChanges();
 
             if (model == null)
             {
                 return NotFound();
             }
 
-            return Ok(model);
+            return Ok(model.Entity);
         }
 
         [HttpDelete("{id}")]
