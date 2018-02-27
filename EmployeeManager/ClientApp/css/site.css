@@ -1,20 +1,22 @@
 body {
     background-color: #e6e6e6;
+    font-family: 'Segoe UI';
 }
 
 /* Shared */
-.card-body {
-    height: 80%;
-}
-
 .employee-form-footer, .employee-list-footer {
     display: flex;
     padding: 0;
 }
 
+.employee-list-body, .employee-form-body {
+    height: 80%;
+    overflow-y: auto;
+}
+
 .employee-form-footer .update-employee-btn,
 .employee-form-footer .create-employee-btn,
-.employee-list-footer .add-employee-button {
+.employee-list-footer .add-employee-btn {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -88,10 +90,6 @@ input:focus, input:active,
     height: 600px;
 }
 
-.employee-list-body {
-    overflow-y: scroll;
-}
-
 .employee-list-footer, .employee-list-header {
     border-radius: 0 !important;
     background-color: #1c9c9d;
@@ -154,4 +152,37 @@ input:focus, input:active,
     justify-content: space-around;
 }
 
+.employee-form-body {
+    padding: 0;
+}
 
+.employee-form-container .ui-tabview {
+    height: 90%;
+    display: flex;
+    flex-flow: column;
+    padding: 0;
+}
+
+.employee-form-container .ui-tabview ul.ui-tabview-nav {
+    font-family: 'Segoe UI';
+    background-color: #154b5d;
+    border: 0;
+    height: 11%;
+    border-radius: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.employee-form-container .ui-tabview ul.ui-tabview-nav li{
+    border-radius: 0;
+}
+
+.employee-form-container .ui-tabview .ui-tabview-panels {
+    flex: 1;
+    display: flex;
+}
+
+.employee-form-container .ui-tabview .ui-tabview-panels .ui-tabview-panel {
+    flex: 1;
+}
