@@ -31,6 +31,24 @@ body {
     padding-top: .2em;
 }
 
+input, .ui-calendar input {
+    border: 0;
+    border-radius: 0;
+    border-bottom: 3px solid #ddd;
+    outline: none;
+}
+
+input:focus, input:active,
+.ui-calendar input:focus,
+.ui-calendar input:active {
+    border-color: #154b5d;
+    box-shadow: none;
+}
+
+.ui-calendar input {
+    width: 100%;
+}
+
 /* Navbar Styles */
 .main-nav {
     color: #ffffff;
@@ -46,17 +64,6 @@ body {
 
 .card-header, .card-footer {
     height: 10%;
-}
-
-/* Input styles */
-input {
-    border: 0;
-    border-bottom: 3px solid #ddd;
-    outline: none;
-}
-
-input:focus, input:active {
-    border-color: #154b5d;
 }
 
 /* Home Component Styles */
