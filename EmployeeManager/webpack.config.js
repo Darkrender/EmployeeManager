@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
 const merge = require('webpack-merge');
 
 module.exports = (env) => {
@@ -20,8 +19,7 @@ module.exports = (env) => {
                 { test: /\.jsx?$/, include: /ClientApp/, use: 'babel-loader', exclude: /node_modules/},
                 { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' }
             ]
-        },
-        plugins: [new CheckerPlugin()]
+        }
     });
 
     // Configuration for client-side bundle suitable for running in browsers
