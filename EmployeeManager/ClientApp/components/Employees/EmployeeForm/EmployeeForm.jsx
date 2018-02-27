@@ -74,6 +74,7 @@ class EmployeeForm extends Component {
 
     _handleSubmit(event) {
         event.preventDefault();
+        this.setState({ dateRange: [], paymentPreviewAmount: 0 });
         this.props.selectedEmployee ? this.props.updateSelectedEmployee() : this.props.createEmployee();
     }
 
