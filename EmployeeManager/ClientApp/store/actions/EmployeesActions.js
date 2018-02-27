@@ -29,8 +29,10 @@ export const beginCreateEmployee = (dispatch, getState) => {
 
 export const beginUpdateEmployee = (dispatch, getState) => {
     const employee = getState().employeeForm;
+    const selectedEmployee = getState().employees.selectedEmployee;
+    const payload = { ...selectedEmployee, ...employee };
 
-    return updateEmployee(employee).then(
+    return updateEmployee(payload).then(
         response => {
             console.log(response.data);
             dispatch(updateEmployeeSuccess(response.data))
@@ -53,6 +55,11 @@ export const addEmployeeSuccess = (payload) => {
 
 export const updateEmployeeSuccess = (payload) => {
     return { type: 'UPDATE_EMPLOYEE_SUCCESS', payload };
+}
+
+export const clearSelectedEmployee = (dispatch) => {
+    dispatch(clearForm());
+    return dispatch({ type: 'CLEAR_SELECTED_EMPLOYEE' });
 }
 
 export const getAllEmployees = () => {
