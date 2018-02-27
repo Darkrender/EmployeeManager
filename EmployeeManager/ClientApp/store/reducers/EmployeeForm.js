@@ -7,7 +7,7 @@ export const EmployeeFormState = {
     name: '',
     jobTitle: '',
     wage: '',
-    payFrequency: '',
+    payFrequency: 0,
     hireDate: new Date(),
     isSalaried: true
 }
