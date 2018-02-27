@@ -1,5 +1,7 @@
 ﻿import axios from 'axios';
 
+import { clearForm } from './EmployeeFormActions';
+
 export const startFetchingEmployees = (dispatch) => {
     dispatch({ type: 'FETCHING_EMPLOYEES' });
 
@@ -17,7 +19,10 @@ export const beginCreateEmployee = (dispatch, getState) => {
     const newEmployee = getState().employeeForm;
 
     return createEmployee(newEmployee).then(
-        response => dispatch(addEmployeeToState(response.data)),
+        response => {
+            dispatch(addEmployeeToState(response.data))
+            dispatch(clearForm())
+        },
         error => console.error(error)
     );
 }
