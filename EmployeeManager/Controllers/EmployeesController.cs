@@ -25,7 +25,7 @@ namespace EmployeeManager.Controllers
                 _context.Employees.Add(new Employee
                 {
                     HireDate = new DateTime(),
-                    IsSalaried = true,
+                    PaymentType = 0,
                     Name = "Jimmie Gisclair",
                     PayFrequency = 2,
                     Wage = 55000,
@@ -41,19 +41,6 @@ namespace EmployeeManager.Controllers
         {
             var employees = _context.Employees.ToListAsync();
             return Ok(employees);
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult GetEmployee(string id)
-        {
-            var model = _context.Employees.FirstOrDefaultAsync(employee => employee.Id == id);
-
-            if (model == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(model);
         }
 
         [HttpPost]
@@ -86,24 +73,6 @@ namespace EmployeeManager.Controllers
             }
 
             return Ok(model.Entity);
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult Delete(string id)
-        {
-            var model = _context.Employees.FirstOrDefault(employee => employee.Id == id);
-
-            if (model != null)
-            {
-                var result = _context.Employees.Remove(model);
-
-                if (result != null)
-                {
-                    return Ok();
-                }
-            }
-
-            return NotFound();
         }
     }
 }
