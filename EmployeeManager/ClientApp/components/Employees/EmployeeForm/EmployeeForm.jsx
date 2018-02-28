@@ -134,7 +134,7 @@ class EmployeeForm extends Component {
                             <Calendar value={this.state.dateRange} selectionMode="range" onChange={this._handleDateRangeChange}></Calendar>
                         </label>
 
-                        <p>Ammount employee will receive for this range: $ {this.state.paymentPreviewAmount}</p>
+                        <p>Amount employee will receive for this range: $ {this.state.paymentPreviewAmount}</p>
                     </TabPanel>
                 </TabView>                
 
