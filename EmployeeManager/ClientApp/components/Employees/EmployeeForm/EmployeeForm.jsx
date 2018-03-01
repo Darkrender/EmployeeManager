@@ -29,7 +29,6 @@ class EmployeeForm extends Component {
 
     _handleHireDateChange(event) {
         const value = moment(event.value).format('MM-DD-YYYY');
-        console.log(value);
         this.props.beginUpdateForm({
             hireDate: value
         });
@@ -40,11 +39,7 @@ class EmployeeForm extends Component {
         const startDate = event.value[0];
         const endDate = event.value[1];
         const selectedEmployee = this.props.selectedEmployee;
-
-        console.log('Startd Date: ' + startDate);
-        console.log('End Date: ' + endDate);
-        console.log(selectedEmployee);
-
+        
         if (startDate && endDate) {
             const timesPaid = this._getNumTimesPaid(startDate, endDate, selectedEmployee.payFrequency);
 
@@ -52,7 +47,6 @@ class EmployeeForm extends Component {
                 ? this._getSalariedPay(timesPaid, selectedEmployee.wage, selectedEmployee.payFrequency)
                 : this._getHourlyPay(timesPaid, selectedEmployee.payFrequency, selectedEmployee.wage);
 
-            console.log(payForRange);
             this.setState({ paymentPreviewAmount: payForRange });
         }
     }
